@@ -31,6 +31,26 @@ main a.light {
 	background-color: var(--color-light);
 }
 
+main a.left {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+main a.right {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 1rem;
+}
+
+main a span {
+	width: 60%;
+}
+
+main a img {
+	width: 40%;
+}
+
 header img {
 	height: 3rem;
 }
