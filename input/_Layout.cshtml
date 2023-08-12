@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Baltnet Communications</title>
+	<meta name="description" content="Baltnet Communications Website" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="@Context.GetLink("/css/main.css")" />
+	<link rel="stylesheet" media="screen and (max-width: 900px)" href="@Context.GetLink("/css/mobile.css")" />
+</head>
+
+<body>
+	<header>
+		<a href="/"><img src="/img/logo.svg" alt="Logo" /></a>
+		<nav>
+			@Html.Partial("_Header")
+		</nav>
+	</header>
+
+	<main>
+		@RenderBody()
+	</main>
+</body>
+
+</html>

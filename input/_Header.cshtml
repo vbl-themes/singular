@@ -1,0 +1,10 @@
+<ul>
+	@{
+		var children = OutputPages.FilterSources(new string[]{"*.md", "**/index.md"}).OrderBy(x => x.GetString("Order"));
+		foreach (var child in children) {
+			<li>
+				<a href="#@child.GetLink().TrimStart('/')">@child.GetTitle()</a>
+			</li>		
+		}
+	}
+</ul>

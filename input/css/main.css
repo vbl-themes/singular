@@ -1,0 +1,67 @@
+:root {
+	--color-light: #ff8400;
+	--color-darker: #b2b2b2;
+	--color-dark: #666;
+	--color-white: #fff;
+	--opacity-dark: #66666680;
+	--opacity-lighter: #ffffffd9;
+	--opacity-light: #ffffffef;
+	--shadow-light: 0px 1px 3px #000;
+}
+
+html {
+	scroll-padding-top: 5rem;
+}
+
+body {
+	margin: 0;
+}
+
+main a {
+	display: block;
+	padding: 2em;
+}
+
+main a.dark {
+	background-color: var(--color-dark);
+	color: var(--color-white);
+}
+
+main a.light {
+	background-color: var(--color-light);
+}
+
+header img {
+	height: 3rem;
+}
+
+header {
+	display: flex;
+	position: sticky;
+    top: 0;
+	justify-content: space-between;
+    align-items: center;
+	background-color: var(--opacity-light);
+	padding: 1rem;
+	height: 3rem;
+}
+
+header nav ul {
+	display: flex;
+	margin: 0.5em;
+}
+
+header nav ul li {
+	display: inline;
+	margin: 0 0.5em 0 0.5em;
+}
+
+header nav ul a {
+	color: var(--color-dark);
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+header nav ul a:hover {
+	color: var(--color-light);
+}

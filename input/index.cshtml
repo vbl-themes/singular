@@ -1,0 +1,9 @@
+ArchiveSources: => "*.md"
+ArchiveOrderKey: Published
+ArchiveOrderDescending: true
+IncludeInSitemap: false
+---
+
+@foreach (var post in Model.GetChildren()) {
+	<a id="@post.GetLink().TrimStart('/')" class="@post.GetString("Style")">@Html.Raw(await post.GetContentStringAsync())</a>
+}
