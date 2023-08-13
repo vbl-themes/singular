@@ -22,27 +22,6 @@ main a {
 	padding: 2em;
 }
 
-main a.dark {
-	background-color: var(--color-dark);
-	color: var(--color-white);
-}
-
-main a.light {
-	background-color: var(--color-light);
-}
-
-main a.left {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-}
-
-main a.right {
-	display: flex;
-	flex-direction: row-reverse;
-	gap: 1rem;
-}
-
 main a span {
 	width: 60%;
 }
