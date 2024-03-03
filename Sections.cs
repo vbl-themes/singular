@@ -3,9 +3,9 @@ using Statiq.Web.Pipelines;
 
 namespace Singular;
 
-public class Archives : Pipeline {
+public class Sections : Pipeline {
 	
-	public Archives(Templates templates) {
+	public Sections(Templates templates) {
 		Dependencies.AddRange(nameof(Inputs), nameof(Content), nameof(Data));
 
 		ProcessModules = new ModuleList {
