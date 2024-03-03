@@ -3,26 +3,22 @@ using Statiq.Web.Pipelines;
 
 namespace Singular;
 
-public class Sections : Pipeline {
-	public static class Keys {
-		public const string SectionSources = nameof(SectionSources);
-		public const string SectionOrderKey = nameof(SectionOrderKey);
-	}
+public class Archives : Pipeline {
 	
-	public Sections(Templates templates) {
+	public Archives(Templates templates) {
 		Dependencies.AddRange(nameof(Inputs), nameof(Content), nameof(Data));
 
 		ProcessModules = new ModuleList {
 			new GetPipelineDocuments(Config.FromDocument(doc => doc.Get<ContentType>(WebKeys.ContentType) != ContentType.Asset || doc.MediaTypeEquals(MediaTypes.CSharp))),
-			new FilterDocuments(Config.FromDocument(IsSection)),
+			new FilterDocuments(Config.FromDocument(Statiq.Web.Pipelines.Archives.IsArchive)),
 			
 			new ForEachDocument {
 				new ExecuteConfig(Config.FromDocument((archiveDoc, _) => {
 					return new ModuleList {
 						new ReplaceDocuments(archiveDoc.GetList(WebKeys.ArchivePipelines, new[] { nameof(Content) }).ToArray()),
 						new MergeMetadata(Config.FromValue(archiveDoc.Yield())).KeepExisting(),
-						new FilterSources(archiveDoc.GetList<string>(Sections.Keys.SectionSources)),
-						new OrderDocuments(archiveDoc.GetString(Sections.Keys.SectionOrderKey)),
+						new FilterSources(archiveDoc.GetList<string>(WebKeys.ArchiveSources)),
+						new OrderDocuments(archiveDoc.GetString(WebKeys.ArchiveOrderKey)),
 						
 						// Execute post-processing on found sources to make sure that partial templates are rendered
 						templates.GetModule(ContentType.Content, Phase.PostProcess),
@@ -45,8 +41,4 @@ public class Sections : Pipeline {
 			new WriteFiles()
 		};
 	}
-
-	public static bool IsSection(IDocument document) =>
-		document.ContainsKey(Sections.Keys.SectionSources) || 
-		document.ContainsKey(Sections.Keys.SectionOrderKey);
 }
