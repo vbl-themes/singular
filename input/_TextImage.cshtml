@@ -1,0 +1,11 @@
+@{
+	Model.TryGetRaw("Image", out object img);
+}
+
+@if(img != null) {
+	<img src="/img/@img.ToString()" alt="" />
+}
+
+<div>
+	@RenderBody()
+</div>

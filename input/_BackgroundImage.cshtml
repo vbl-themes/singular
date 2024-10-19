@@ -1,0 +1,14 @@
+@{
+	Model.TryGetRaw("Image", out object img);
+}
+
+@if(img == null) {
+	<div>
+		@RenderBody()
+	</div>
+}
+else {
+	<div style="background-image: url('/img/@img.ToString()')">
+		@RenderBody()
+	</div>
+}

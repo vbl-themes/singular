@@ -1,4 +1,10 @@
-<div>
-	<h1>Test</h1>
-	@RenderBody()
-</div>
+@{
+	Model.TryGetRaw("Images", out object img);
+	IgnoreBody();
+}
+
+@if(img == null) { return; }
+
+@foreach(var image in (string[])@img) {
+	<img src="/img/@image" alt="" />
+}
