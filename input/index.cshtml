@@ -4,14 +4,11 @@ IncludeInSitemap: false
 ---
 
 @foreach (var post in Model.GetChildren()) {
-	var image = post.GetString("Image");
-	<a id="@post.GetLink().TrimStart('/')" class="@post.GetString("Style")">
-		@if(image == null) {
-			@Html.Raw(await post.GetContentStringAsync())
-		}
-		else {
-			<img src="/img/@image" alt="Image" />
-			<span>@Html.Raw(await post.GetContentStringAsync())</span>
-		}
+	var id = @post.GetLink().TrimStart('/');
+
+	<!-- Section @id start -->
+	<a id="@id" class="@post.GetString("Style")">
+		@Html.Raw(await post.GetContentStringAsync())
 	</a>
+	<!-- Section @id end -->
 }
