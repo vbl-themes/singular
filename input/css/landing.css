@@ -15,7 +15,6 @@ main {
 	display: flex;
 	align-items: center;
 	max-width: 1000px;
-	min-width: 700px;
 }
 
 img {
