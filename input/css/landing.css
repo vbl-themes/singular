@@ -1,0 +1,35 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+body {
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+main {
+	display: flex;
+	align-items: center;
+	width: 80vw;
+	max-width: 2000px;
+}
+
+img {
+	height: 50vh;
+}
+
+p img {
+	max-height: 1em;
+}
+
+h1, h2 {
+	margin-bottom: 0.5rem;
+}
+
+p {
+	margin: 0 0 0.5rem;
+}
